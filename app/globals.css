@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0f;
+  --foreground: #f0f0f5;
 }
 
 @theme inline {
@@ -10,13 +10,32 @@
   --color-foreground: var(--foreground);
 }
 
+html,
 body {
+  height: 100%;
   background: var(--background);
   color: var(--foreground);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
     system-ui, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+}
+
+/* 3D carousel container */
+.reel-stage {
+  perspective: 1400px;
+  transform-style: preserve-3d;
+}
+
+/* Custom date input dark */
+input[type="date"] {
+  color-scheme: dark;
+}
+
+/* Safe area bottom padding for mobile */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
 }
 
 /* Smooth scrolling */
@@ -24,23 +43,20 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Focus styles */
-:focus-visible {
-  outline: 2px solid #111;
-  outline-offset: 2px;
-}
-
-/* Custom scrollbar */
+/* Thin scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d1d5db;
-  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+
+/* Focus */
+:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.4);
+  outline-offset: 2px;
 }
