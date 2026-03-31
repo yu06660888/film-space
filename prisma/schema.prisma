@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Film {
+  id            String         @id @default(cuid())
+  tmdbId        Int?           @unique
+  title         String
+  originalTitle String?
+  posterPath    String?
+  year          Int?
+  director      String?
+  overview      String?
+  createdAt     DateTime       @default(now())
+  sessions      WatchSession[]
+}
+
+model WatchSession {
+  id          String   @id @default(cuid())
+  filmId      String
+  film        Film     @relation(fields: [filmId], references: [id], onDelete: Cascade)
+  watchNumber Int
+  watchedAt   DateTime @default(now())
+
+  // Context tags
+  mood      String?
+  location  String?
+  companion String?
+  device    String?
+
+  photoPath String?
+  notes     String?
+  rating    Float?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
