@@ -8,11 +8,11 @@ interface MeshBackgroundProps {
   color3?: string;
 }
 
-// Default soft cinema palette
+// Default soft pastel palette for light background
 const DEFAULT_COLORS = {
-  c1: "rgba(120, 80, 200, 0.18)",
-  c2: "rgba(220, 80, 100, 0.14)",
-  c3: "rgba(40, 100, 220, 0.12)",
+  c1: "rgba(147, 197, 253, 0.4)",
+  c2: "rgba(253, 186, 186, 0.35)",
+  c3: "rgba(196, 181, 253, 0.3)",
 };
 
 export function MeshBackground({
@@ -21,7 +21,7 @@ export function MeshBackground({
   color3 = DEFAULT_COLORS.c3,
 }: MeshBackgroundProps) {
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden bg-[#0a0a0f]">
+    <div className="fixed inset-0 -z-10 overflow-hidden bg-[#f5f5f7]">
       {/* Orb 1 — top left */}
       <motion.div
         animate={{ x: [0, 30, 0], y: [0, -20, 0] }}

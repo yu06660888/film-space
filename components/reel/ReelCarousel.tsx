@@ -61,7 +61,7 @@ export function ReelCarousel({
     return (
       <div className="flex flex-col items-center justify-center h-full gap-6">
         <div className="text-6xl">🎬</div>
-        <p className="text-white/50 text-sm tracking-wide">还没有影片，搜索添加第一部</p>
+        <p className="text-gray-400 text-sm tracking-wide">还没有影片，点击顶部搜索添加第一部</p>
       </div>
     );
   }
@@ -101,11 +101,11 @@ export function ReelCarousel({
         transition={{ duration: 0.4 }}
         className="mt-8 text-center"
       >
-        <p className="text-white/90 text-base font-medium tracking-wide">
+        <p className="text-gray-900/90 text-base font-medium tracking-wide">
           {focusedFilm?.title}
         </p>
         {focusedFilm && focusedFilm.sessionCount > 0 && (
-          <p className="text-white/40 text-xs mt-1">
+          <p className="text-gray-400 text-xs mt-1">
             已看 {focusedFilm.sessionCount} 次
           </p>
         )}
@@ -120,8 +120,8 @@ export function ReelCarousel({
               onClick={() => goTo(i)}
               className={`rounded-full transition-all duration-300 ${
                 i === centerIdx
-                  ? "w-4 h-1.5 bg-white"
-                  : "w-1.5 h-1.5 bg-white/30"
+                  ? "w-4 h-1.5 bg-gray-800"
+                  : "w-1.5 h-1.5 bg-gray-300"
               }`}
             />
           ))}
@@ -134,14 +134,14 @@ export function ReelCarousel({
           {/* View timeline */}
           <Link
             href={`/film/${focusedFilm.id}`}
-            className="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/80 text-xs font-medium hover:bg-white/20 transition-all"
+            className="px-4 py-2 rounded-full bg-black/6 border border-black/12 text-gray-600 text-xs font-medium hover:bg-black/10 transition-all"
           >
             查看记录
           </Link>
           {/* Add new session */}
           <button
             onClick={() => onAddRecord?.(focusedFilm)}
-            className="px-4 py-2 rounded-full bg-white text-gray-900 text-xs font-semibold hover:bg-white/90 transition-all shadow-lg"
+            className="px-4 py-2 rounded-full bg-gray-900 text-white text-xs font-semibold hover:bg-gray-700 transition-all shadow-lg"
           >
             + 记录此刻
           </button>

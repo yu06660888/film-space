@@ -37,11 +37,11 @@ const POSITION_CONFIG: Record<
 
 function SprocketRow() {
   return (
-    <div className="flex items-center justify-around px-2 py-1.5 bg-black/40">
+    <div className="flex items-center justify-around px-2 py-1.5 bg-black/8">
       {Array.from({ length: 8 }).map((_, i) => (
         <div
           key={i}
-          className="w-[10px] h-[8px] rounded-[2px] bg-gray-900/80 border border-gray-700/60"
+          className="w-[10px] h-[8px] rounded-[2px] bg-gray-300 border border-gray-400/40"
         />
       ))}
     </div>
@@ -74,12 +74,12 @@ export function ReelCard({ film, positionIndex, onClick }: ReelCardProps) {
       style={{ zIndex: cfg.zIndex, transformStyle: "preserve-3d" }}
       className={`absolute w-[220px] cursor-pointer ${isFocus ? "cursor-pointer" : "cursor-default"}`}
     >
-      <div className="relative rounded-lg overflow-hidden shadow-2xl ring-1 ring-white/10">
+      <div className="relative rounded-lg overflow-hidden shadow-xl ring-1 ring-black/8">
         {/* Top sprocket row */}
         <SprocketRow />
 
         {/* Poster */}
-        <div className="relative aspect-[2/3] bg-gray-900">
+        <div className="relative aspect-[2/3] bg-gray-200">
           <Image
             src={posterUrl(film.posterPath, "w500")}
             alt={film.title}
@@ -107,7 +107,7 @@ export function ReelCard({ film, positionIndex, onClick }: ReelCardProps) {
 
       {/* Focus ring glow */}
       {isFocus && (
-        <div className="absolute inset-0 rounded-lg ring-2 ring-white/20 pointer-events-none" />
+        <div className="absolute inset-0 rounded-lg ring-2 ring-black/15 pointer-events-none" />
       )}
     </motion.div>
   );

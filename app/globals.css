@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0f;
-  --foreground: #f0f0f5;
+  --background: #f5f5f7;
+  --foreground: #1d1d1f;
 }
 
 @theme inline {
@@ -22,16 +22,17 @@ body {
   overscroll-behavior: none;
 }
 
+/* Custom date input light */
+input[type="date"] {
+  color-scheme: light;
+}
+
 /* 3D carousel container */
 .reel-stage {
   perspective: 1400px;
   transform-style: preserve-3d;
 }
 
-/* Custom date input dark */
-input[type="date"] {
-  color-scheme: dark;
-}
 
 /* Safe area bottom padding for mobile */
 .pb-safe {

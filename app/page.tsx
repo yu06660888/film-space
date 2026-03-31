@@ -107,7 +107,7 @@ export default function ReelPage() {
       {/* Main reel */}
       <div className="flex-1 w-full flex items-center justify-center">
         {loading ? (
-          <p className="text-white/30 text-sm animate-pulse">loading...</p>
+          <p className="text-gray-400 text-sm animate-pulse">loading...</p>
         ) : (
           <ReelCarousel
             films={films}
@@ -120,8 +120,8 @@ export default function ReelPage() {
       </div>
 
       {/* Liquid glass vignette edges */}
-      <div className="pointer-events-none fixed bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#0a0a0f] to-transparent" />
-      <div className="pointer-events-none fixed top-0 inset-x-0 h-16 bg-gradient-to-b from-[#0a0a0f]/60 to-transparent" />
+      <div className="pointer-events-none fixed bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#f5f5f7] to-transparent" />
+      <div className="pointer-events-none fixed top-0 inset-x-0 h-16 bg-gradient-to-b from-[#f5f5f7]/60 to-transparent" />
 
       {/* Session form panel */}
       <AnimatePresence>

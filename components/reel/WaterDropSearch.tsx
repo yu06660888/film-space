@@ -74,7 +74,7 @@ export function WaterDropSearch({ onSelect }: WaterDropSearchProps) {
       {/* Trigger button (always visible, minimal) */}
       <button
         onClick={() => { setVisible(true); setTimeout(() => inputRef.current?.focus(), 100); }}
-        className="fixed top-5 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/60 text-sm hover:bg-white/15 transition-all"
+        className="fixed top-5 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 px-4 py-2 rounded-full bg-black/5 backdrop-blur-md border border-black/10 text-gray-500 text-sm hover:bg-black/8 transition-all shadow-sm"
       >
         <Search size={13} />
         搜索电影
@@ -89,7 +89,7 @@ export function WaterDropSearch({ onSelect }: WaterDropSearchProps) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => { setVisible(false); setQuery(""); setResults([]); }}
-              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
+              className="fixed inset-0 z-40 bg-black/15 backdrop-blur-sm"
             />
 
             {/* Search panel — drops from top */}
@@ -100,13 +100,13 @@ export function WaterDropSearch({ onSelect }: WaterDropSearchProps) {
               transition={{ type: "spring", stiffness: 320, damping: 30 }}
               className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-md px-4"
             >
-              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="bg-white/95 backdrop-blur-xl border border-black/6 rounded-2xl overflow-hidden shadow-2xl">
                 {/* Input */}
                 <div className="flex items-center gap-3 px-4 py-3.5">
                   {loading ? (
-                    <Loader2 size={16} className="text-white/50 animate-spin flex-shrink-0" />
+                    <Loader2 size={16} className="text-gray-400 animate-spin flex-shrink-0" />
                   ) : (
-                    <Search size={16} className="text-white/50 flex-shrink-0" />
+                    <Search size={16} className="text-gray-400 flex-shrink-0" />
                   )}
                   <input
                     ref={inputRef}
@@ -115,7 +115,7 @@ export function WaterDropSearch({ onSelect }: WaterDropSearchProps) {
                     onChange={(e) => setQuery(e.target.value)}
                     onKeyDown={(e) => e.key === "Escape" && setVisible(false)}
                     placeholder="输入电影名称..."
-                    className="flex-1 bg-transparent text-white placeholder:text-white/40 text-sm outline-none"
+                    className="flex-1 bg-transparent text-gray-900 placeholder:text-gray-400 text-sm outline-none"
                     autoComplete="off"
                   />
                 </div>
@@ -127,7 +127,7 @@ export function WaterDropSearch({ onSelect }: WaterDropSearchProps) {
                       initial={{ height: 0 }}
                       animate={{ height: "auto" }}
                       exit={{ height: 0 }}
-                      className="overflow-hidden border-t border-white/10"
+                      className="overflow-hidden border-t border-gray-100"
                     >
                       {results.map((movie) => {
                         const year = movie.release_date?.split("-")[0];
@@ -135,9 +135,9 @@ export function WaterDropSearch({ onSelect }: WaterDropSearchProps) {
                           <button
                             key={movie.id}
                             onClick={() => handleSelect(movie)}
-                            className="w-full flex items-center gap-3 px-4 py-3 hover:bg-white/10 transition-colors text-left"
+                            className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors text-left"
                           >
-                            <div className="relative w-8 h-12 rounded-md overflow-hidden bg-white/5 flex-shrink-0">
+                            <div className="relative w-8 h-12 rounded-md overflow-hidden bg-gray-100 flex-shrink-0">
                               <Image
                                 src={posterUrl(movie.poster_path, "w185")}
                                 alt={movie.title}
@@ -147,13 +147,13 @@ export function WaterDropSearch({ onSelect }: WaterDropSearchProps) {
                               />
                             </div>
                             <div className="flex-1 min-w-0">
-                              <p className="text-white/90 text-sm font-medium truncate">
+                              <p className="text-gray-900 text-sm font-medium truncate">
                                 {movie.title}
                               </p>
                               {movie.original_title !== movie.title && (
-                                <p className="text-white/40 text-xs truncate">{movie.original_title}</p>
+                                <p className="text-gray-500 text-xs truncate">{movie.original_title}</p>
                               )}
-                              {year && <p className="text-white/30 text-xs">{year}</p>}
+                              {year && <p className="text-gray-400 text-xs">{year}</p>}
                             </div>
                           </button>
                         );
