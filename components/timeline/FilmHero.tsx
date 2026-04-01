@@ -30,11 +30,11 @@ export function FilmHero({ film }: FilmHeroProps) {
       <div className="relative max-w-5xl mx-auto px-6 pt-8 pb-10">
         {/* Back button */}
         <Link
-          href="/shelf"
+          href="/"
           className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 transition-colors mb-8"
         >
           <ArrowLeft size={14} />
-          书架
+          返回
         </Link>
 
         <div className="flex gap-8 items-start">

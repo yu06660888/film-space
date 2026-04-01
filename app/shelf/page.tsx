@@ -18,7 +18,7 @@ export default async function ShelfPage() {
   });
 
   return (
-    <main className="min-h-screen pt-14">
+    <main className="min-h-screen">
       <div className="max-w-5xl mx-auto px-6 py-10">
         <div className="mb-8">
           <h1 className="text-2xl font-semibold text-gray-900 tracking-tight">

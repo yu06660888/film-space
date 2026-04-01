@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, useMotionValue, useAnimation } from "framer-motion";
 import { ReelCard } from "./ReelCard";
 import Link from "next/link";
+import { LayoutGrid } from "lucide-react";
 
 interface FilmItem {
   id: string;
@@ -145,6 +146,14 @@ export function ReelCarousel({
           >
             + 记录此刻
           </button>
+          {/* All films grid */}
+          <Link
+            href="/shelf"
+            className="p-2 rounded-full bg-black/6 border border-black/12 text-gray-500 hover:bg-black/10 transition-all"
+            title="全部影片"
+          >
+            <LayoutGrid size={14} />
+          </Link>
         </div>
       )}
     </div>

@@ -77,12 +77,11 @@ export function SessionCard({ session, index }: SessionCardProps) {
 
         {/* Context tags */}
         {(session.mood || session.location || session.companion || session.device) && (
-          <div className="flex flex-wrap gap-1.5 mb-4">
+          <div className="flex flex-wrap gap-1.5 mb-4 items-center">
             {session.mood && (
-              <ContextChip
-                icon={Smile}
-                label={MOOD_LABELS[session.mood as Mood] ?? session.mood}
-              />
+              /^[a-zA-Z_]+$/.test(session.mood)
+                ? <ContextChip icon={Smile} label={MOOD_LABELS[session.mood as Mood] ?? session.mood} />
+                : <span className="text-2xl leading-none" title="感受">{session.mood}</span>
             )}
             {session.location && (
               <ContextChip

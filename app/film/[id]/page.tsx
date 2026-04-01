@@ -26,7 +26,7 @@ export default async function FilmPage({ params }: Props) {
   if (!film) notFound();
 
   return (
-    <main className="min-h-screen pt-14">
+    <main className="min-h-screen">
       <FilmHero film={film as unknown as Film & { _count: { sessions: number } }} />
 
       <div className="max-w-5xl mx-auto px-6 pb-16">
